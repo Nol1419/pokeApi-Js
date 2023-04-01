@@ -7,24 +7,17 @@
     <title>Pokemon API</title>
 </head>
 <body>
-    <form id="form">
-        <label for="searchPokemon">
-            Search Pokemon
-        </label>
-        <input type="search" name="searchPokemon" id="searchPokemon">
-        <!-- <input type="text" name="searchPokemon" id="searchPokemon"> -->
+    <form id="form" >
+        <label for="searchPokemon">Search Pokemon</label>
+        <input type="text" name="searchPokemon" id="searchPokemon" autocomplete="off">
 
-        <!-- <button type="button" id="btnSearch" class="btnSearch">Get Api Pokemon</button> -->
     </form>
 
     <!-- <button type="button" id="btn" class="btn">Get Api Pokemon</button> -->
-    <div class="seeResultApi">
-        <span class="message" id="message"></span>
-    </div>
+    <div class="contentBtn" id="contentBtn"></div>
 
-    <!-- <div class="resultAll"></div> -->
-    
-    
+    <div class="contentApi">
+    </div>
     
     <!-- JS -->
     <script src="./js/index.js"></script>
