@@ -5,22 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon API</title>
+
+    <!-- BoxIcons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/sttyleModal.css">
+
 </head>
 <body>
     <form id="form" >
         <label for="searchPokemon">Search Pokemon</label>
-        <input type="text" name="searchPokemon" id="searchPokemon" autocomplete="off">
+        <input type="text" name="searchPokemon" id="searchPokemon" autocomplete="off" placeholder="Search with Name Pokemon or ID Pokemon" size="40">
 
     </form>
 
-    <!-- <button type="button" id="btn" class="btn">Get Api Pokemon</button> -->
     <div class="contentBtn" id="contentBtn"></div>
 
-    <div class="contentApi">
-    </div>
+    <div class="contentApi"></div>
     
     <!-- JS -->
     <script src="./js/index.js"></script>
-
 </body>
 </html>

@@ -58,7 +58,8 @@ const callApi = async (url) => {
   const result = await getApi.json();
 
   seePokemons(result.results);
-
+  console.log(result);
+  console.log(result.results);
   next = result.next
     ? `<button class="btn" data-url=${result.next}> > </button>`
     : ``;
@@ -84,7 +85,7 @@ const seePokemons = async (data) => {
       }
 
       const result = await respuesta.json();
-      let dataPokemon
+      // let dataPokemon;
 
       let imgPokemon = await result.sprites.front_default;
       let tipoPokemon = await result.types.map(
@@ -113,14 +114,14 @@ const seePokemons = async (data) => {
                         <p>${result.weight} Kg</p>
                     </div>
 
-                    <a href="../templates/fichaTecnicaPokemon.html" target = "_blank">See More</a>
-
                 </div>
                 `;
-      pokemonItem.innerHTML += infoPokemons;
 
+      pokemonItem.innerHTML += infoPokemons;
       fragment.appendChild(pokemonItem);
+
       infoPokemons = "";
+      console.log(infoPokemons);
     }
     resultApi.appendChild(fragment);
     
@@ -132,7 +133,6 @@ const seePokemons = async (data) => {
 
 searchData.addEventListener("keyup", (e) => {
   e.preventDefault();
-  console.log(e);
   let { value } = e.target;
 
   value === "" ? callApi(seePokemosURL) : searchPokemon(value);
@@ -143,8 +143,6 @@ callApi(seePokemosURL);
 contentBtn.addEventListener("click", (event) => {
   if (event.target.classList.contains("btn")) {
     let value = event.target.dataset.url;
-    console.log(value);
     callApi(value);
   }
 });
-
