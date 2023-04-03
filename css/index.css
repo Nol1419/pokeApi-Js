@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*<div class = "poke_info" >
+    <img src="${imgPokemon}" alt="${result.name}">
+    <div class="dataBasic">
+        <p>${result.id}</p>
+        <h3 class="namePokemon">Name: ${result.name}</h3>
+    </div>
+
+    <div class ="atributePokemon">
+        ${tipoPokemon}
+    </div>
+    <div class = "features">
+        <p>${result.height} M</p>
+        <p>${result.weight} Kg</p>
+    </div>
+
+</div>*/
+body{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.navBarCategoria{
+    background-color: #e0e0e0;
+    padding: 5% 0 5% 0 ;
+    /* margin: 10% 0 10% 0 ; */
+}
+
+.contentAll{
+    width: 100%;
+    /* background-color: #e0e0e0; */
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 2rem;
+}
+
+/*hacer un effect move label about input*/
+.formSearchPokemon{
+    position: relative;
+    margin-top: 1rem;
+    width: 30%;
+}
+
+.formSearchPokemon input{
+    width: 100%;
+    background: transparent;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: .7rem;
+}
+
+.formSearchPokemon label{
+    position: absolute;
+    left: 0;
+    padding: 11px .5rem;
+    color: #fff;
+    pointer-events: none;
+    transition: all 400ms ease;
+}
+
+
+.formSearchPokemon input:focus ~ label,
+.formSearchPokemon input:valid ~ label
+{
+    transform: translateX(10px) translateY(-12px);
+    padding: 2px .5rem;
+    background: #fff;
+    color: #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    
+}
+

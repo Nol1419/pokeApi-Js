@@ -58,8 +58,7 @@ const callApi = async (url) => {
   const result = await getApi.json();
 
   seePokemons(result.results);
-  console.log(result);
-  console.log(result.results);
+  
   next = result.next
     ? `<button class="btn" data-url=${result.next}> > </button>`
     : ``;

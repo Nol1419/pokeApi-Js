@@ -10,21 +10,33 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- css -->
-    <link rel="stylesheet" href="./css/sttyleModal.css">
+    <link rel="stylesheet" href="./css/index.css">
 
 </head>
 <body>
-    <form id="form" >
-        <label for="searchPokemon">Search Pokemon</label>
-        <input type="text" name="searchPokemon" id="searchPokemon" autocomplete="off" placeholder="Search with Name Pokemon or ID Pokemon" size="40">
+    <!-- Navbar de categorizacion de tipos de pokemon -->
+    <nav class="navBarCategoria">
+        <h2>Navegador de categorias Pokemon</h2>
+    </nav>
 
-    </form>
+    <br>
 
-    <div class="contentBtn" id="contentBtn"></div>
+    <main class="contentAll">
+        <!-- CARD HOVER DATA POKEMON -->
+        <form class="formSearchPokemon" id="form">
+            <input type="text" class="searchPokemon" id="searchPokemon" autocomplete="off" size="40" required>
+            <label for="searchPokemon">Search Name Pokemon or ID Pokemon</label>
 
-    <div class="contentApi"></div>
-    
+        </form>
+
+        <div class="contentBtn" id="contentBtn"></div>
+
+        <!-- CARD HOVER DATA POKEMON (POKE INFO)-->
+        <div class="contentApi"></div>
+    </main>
+
     <!-- JS -->
     <script src="./js/index.js"></script>
 </body>
+
 </html>
