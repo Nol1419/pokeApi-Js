@@ -5,26 +5,15 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/*<div class = "poke_info" >
-    <img src="${imgPokemon}" alt="${result.name}">
-    <div class="dataBasic">
-        <p>${result.id}</p>
-        <h3 class="namePokemon">Name: ${result.name}</h3>
-    </div>
-
-    <div class ="atributePokemon">
-        ${tipoPokemon}
-    </div>
-    <div class = "features">
-        <p>${result.height} M</p>
-        <p>${result.weight} Kg</p>
-    </div>
-
-</div>*/
 body{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+}
+
+img{
+    width: 100%;
+    object-fit: cover;
 }
 
 .navBarCategoria{
@@ -55,6 +44,7 @@ body{
 
 .formSearchPokemon input{
     width: 100%;
+    /* background: #e0e0e0; */
     background: transparent;
     padding: 10px;
     border: 1px solid #000;
@@ -65,7 +55,7 @@ body{
     position: absolute;
     left: 0;
     padding: 11px .5rem;
-    color: #fff;
+    color: #000;
     pointer-events: none;
     transition: all 400ms ease;
 }
@@ -80,6 +70,64 @@ body{
     color: #000;
     border-left: 1px solid #000;
     border-right: 1px solid #000;
-    
 }
 
+.contentBtn{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5px auto;
+}
+
+.contentBtn .btn{
+    cursor: pointer;
+    outline: none;
+    border: transparent;
+    font-size: 1.3rem;
+    font-weight: 400;
+    border-radius: 4px;
+    background-color: #0ff;
+    padding: 5px 10px;
+    transition: background-color 400ms ease, outline 400ms ease;
+}
+
+
+.contentBtn .btn:hover{
+    background-color: transparent;
+    outline: #fff;
+}
+
+.messageError{
+    background-color: transparent;
+    outline: none;
+    border: 2px solid rgb(255, 0, 0);
+    border-radius: 1rem;
+    color: rgb(255, 0, 0);
+    padding: 1rem 1.5rem;
+}
+
+.contentApi{
+    width: 90%;
+}
+
+.contentApi .pokemon-item{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contentApi .pokemon-item .poke_info{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}

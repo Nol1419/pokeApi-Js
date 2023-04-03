@@ -4,6 +4,7 @@ console.log("conected...");
 const searchData = document.getElementById("searchPokemon");
 const resultApi = document.querySelector(".contentApi");
 const contentBtn = document.getElementById("contentBtn");
+const contentBtnButton = document.getElementById("contentBtnButton");
 
 // variables para navigate
 let next;
@@ -31,18 +32,52 @@ const searchPokemon = async (value) => {
 
     const result = await response.json();
     let img = await result.sprites.front_default;
+    let tipoPokemon = await result.types.map((type) => console.log(type));
+
+    tipoPokemon = tipoPokemon.join("");
+
+    /*
+      style="
+                        width: 50%;
+                        margin: 0 auto;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: 1rem; 
+                      "
+    */
+
     //Result = pokemon del search
     if (result) {
-      resultApi.innerHTML = `
-                  <img src ="${img}" >
-                  <div class="namePokemon">Name: ${result.name.toUpperCase()}</div>
-                  <div class="numeroPokemon">Numero: ${result.id}</div>
-                  <div class="altura">Altura: ${result.height} m</div>
-                  <div class="peso">Peso: ${result.weight} kg</div>
-                  
-                  <br>
+      infoPokemons = `
+                  <div class="poke_info" style ="width: 50%; margin: 0 auto;"
+                      >
+                    <img src="${img}" alt="${result.name}">
+                    <div class="dataBasic">
+                        <p>${result.id}</p>
+                        <h3 class="namePokemon">Name: ${result.name}</h3>
+                    </div>
+
+                    <div class ="atributePokemon">
+                        ${tipoPokemon}
+                    </div>
+                    <div class = "features">
+                        <p>${result.height} M</p>
+                        <p>${result.weight} Kg</p>
+                    </div>
+
+                </div>  
               `;
+
+      pokemonItem.innerHTML = infoPokemons;
+      pokemonItem.style.gridTemplateColumns = "1fr";
+
+      fragment.appendChild(pokemonItem);
+      console.log(infoPokemons);
     }
+    resultApi.appendChild(fragment);
+    
   } catch (err) {
     if (searchData.value != "") {
       console.log(err);
@@ -58,7 +93,7 @@ const callApi = async (url) => {
   const result = await getApi.json();
 
   seePokemons(result.results);
-  
+
   next = result.next
     ? `<button class="btn" data-url=${result.next}> > </button>`
     : ``;
@@ -67,7 +102,8 @@ const callApi = async (url) => {
     ? `<button class="btn" data-url=${result.previous}> < </button>`
     : ``;
 
-  contentBtn.innerHTML = previous + " " + next;
+  contentBtn.innerHTML = previous + next;
+  contentBtnButton.innerHTML = previous + next;
 };
 
 const seePokemons = async (data) => {
@@ -92,11 +128,11 @@ const seePokemons = async (data) => {
       );
       tipoPokemon = tipoPokemon.join("");
 
-    //   let numeroPokemon = result.id.toString();
-    //     if(numeroPokemon == 1){
+      //   let numeroPokemon = result.id.toString();
+      //     if(numeroPokemon == 1){
 
-    //     }
-        
+      //     }
+
       infoPokemons = `
                 <div class = "poke_info" >
                     <img src="${imgPokemon}" alt="${result.name}">
@@ -117,16 +153,16 @@ const seePokemons = async (data) => {
                 `;
 
       pokemonItem.innerHTML += infoPokemons;
+      pokemonItem.style.gridTemplateColumns = "repeat(3, 1fr)";
       fragment.appendChild(pokemonItem);
 
       infoPokemons = "";
       console.log(infoPokemons);
     }
     resultApi.appendChild(fragment);
-    
   } catch (err) {
     console.log(err);
-    return (resultApi.innerHTML = `ERROR EN EL Cargar los datos`);
+    return (resultApi.innerHTML = `<div class="messageError">ERROR en la carga de datos de  los Pokemon</div>`);
   }
 };
 
@@ -140,6 +176,13 @@ searchData.addEventListener("keyup", (e) => {
 callApi(seePokemosURL);
 
 contentBtn.addEventListener("click", (event) => {
+  if (event.target.classList.contains("btn")) {
+    let value = event.target.dataset.url;
+    callApi(value);
+  }
+});
+
+contentBtnButton.addEventListener("click", (event) => {
   if (event.target.classList.contains("btn")) {
     let value = event.target.dataset.url;
     callApi(value);
