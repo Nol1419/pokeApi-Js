@@ -123,11 +123,180 @@ img{
 }
 
 .contentApi .pokemon-item .poke_info{
+    position: relative;
     width: 100%;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-evenly;
     text-align: center;
+    border-radius: .5rem;
+    box-shadow: 2px 3px 10px 1px #000;
+    padding: 1rem;
+    gap: 2rem;
+
+    z-index: 50;
+}
+
+.contentApi .pokemon-item .more{
+    background-color: #0ff;
+    display: none;
+}
+
+.contentApi .pokemon-item  img{
+    /* 1040 px */
+    /* background: url(../assets/img/pokeball.png); */
+    /* background: url(../assets/img/pokemon-ball.png); */
+
+    /* 1500px mi pantalla 400px*/
+    background: url(../assets/img/pokeball-desktopfull.png);
+    background-repeat: no-repeat;
+    object-fit: cover;
+}
+
+.poke_info .dataBasic{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.poke_info .dataBasic p{
+    padding: 5px;
+    border-radius: 1rem;
+    background-color: #e0e0e0;
+    font-weight: 400;
+}
+
+.poke_info .atributePokemon{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.poke_info .atributePokemon p{
+    padding: 7px;
+    border-radius: 1rem;
+    font-weight: 700;
+}
+
+.poke_info .features{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.poke_info .features p{
+    padding: 5px;
+    border-radius: .5rem;
+    font-weight: 700;
+    background-color: #e0e0e0;
+}
+
+.normal{
+    background-color: #ece5e5;
+    color: #000;
+}
+
+.fire{
+    background-color: rgb(255, 69, 0);
+    color: #000;
+}
+
+.water{
+    background-color: rgb(0, 76, 255);
+    color: #fff;
+}
+
+.grass{
+    background-color: rgb(10, 172, 10);
+    color: #000;
+}
+
+.electric{
+    background-color: rgb(255, 255, 0);
+    color: #000;
+}
+
+.ice{
+    background-color: rgb(0, 255, 255);
+    color: #000;
+}
+
+.fighting{
+    background-color: rgb(194, 36, 36);
+    color: #fff;
+}
+
+.poison{
+    background-color: rgb(143, 12, 143);
+    color: #fff;
+}
+
+.ground{
+    background-color: rgb(201, 172, 43);
+    color: #000;
+}
+
+.flying{
+    background-color: rgb(100, 149, 237);
+    color: #000;
+}
+
+.psychic{
+    background-color: rgb(220, 100, 182);
+    color: #000;
+}
+
+.bug{
+    background-color: rgb(92, 115, 0);
+}
+
+.rock{
+    background-color: rgb(153, 131, 33);
+    color: #000;   
+}
+
+.ghost{
+    background-color: rgba(143, 12, 143, 0.772);
+    color: #fff;
+}
+
+.dark{
+    background-color: #0000007b;
+    color: #fff;
+}
+
+.dragon{
+    background-color: rgb(101, 20, 181);
+    color: #fff;
+}
+
+.steel{
+    background-color: rgb(112, 128, 144);
+    color: #000;
+}
+
+.fairy{
+    background-color: rgb(243, 166, 218);
+    color: #000;   
+}
+
+@media screen and (max-width: 1040px) {
+    
+    .contentApi .pokemon-item  img{
+        /* 256px */
+        background: url(../assets/img/pokeball.png);
+        background-repeat: no-repeat;
+        object-fit: cover;
+    }
+
 }

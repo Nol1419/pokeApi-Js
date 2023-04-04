@@ -31,56 +31,60 @@ const searchPokemon = async (value) => {
     }
 
     const result = await response.json();
-    let img = await result.sprites.front_default;
-    let tipoPokemon = await result.types.map((type) => console.log(type));
-
+    // let img = await result.sprites.front_default;
+    let img = await result.sprites.other.home.front_default;
+    let tipoPokemon = await result.types.map(
+      (type) => `<p class = "${type.type.name}">${type.type.name.toUpperCase()}</p>`
+    );
     tipoPokemon = tipoPokemon.join("");
 
-    /*
-      style="
-                        width: 50%;
-                        margin: 0 auto;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;
-                        align-items: center;
-                        gap: 1rem; 
-                      "
-    */
+    let classPokemonColor = await result.types.map(
+      (type) => `${type.type.name}`
+    );
+    
+    classPokemonColor = classPokemonColor.join("");
+
+    let numeroPokemon = result.id.toString();
+          if(numeroPokemon.length == 1){
+             numeroPokemon = "00"+numeroPokemon;
+          }else if(numeroPokemon.length == 2){
+            numeroPokemon = "0"+numeroPokemon;
+          }
 
     //Result = pokemon del search
     if (result) {
       infoPokemons = `
-                  <div class="poke_info" style ="width: 50%; margin: 0 auto;"
+                  <div class="poke_info" style ="width: 32%; margin: 0 auto;"
                       >
-                    <img src="${img}" alt="${result.name}">
-                    <div class="dataBasic">
-                        <p>${result.id}</p>
-                        <h3 class="namePokemon">Name: ${result.name}</h3>
-                    </div>
-
-                    <div class ="atributePokemon">
-                        ${tipoPokemon}
-                    </div>
-                    <div class = "features">
-                        <p>${result.height} M</p>
-                        <p>${result.weight} Kg</p>
-                    </div>
-
-                </div>  
+                      
+                      <img src="${img}" alt="${result.name}" >
+                      
+                      <div class="dataBasic">
+                          <p># ${numeroPokemon}</p>
+                          <h2 class="namePokemon"> ${result.name.toUpperCase()}</h2>
+                      </div>
+  
+                      <div class ="atributePokemon">
+                          ${tipoPokemon}
+                      </div>
+                      <div class = "features">
+                          <p>${result.height} M</p>
+                          <p>${result.weight} Kg</p>
+                      </div>
+  
+                  </div>  
               `;
 
       pokemonItem.innerHTML = infoPokemons;
       pokemonItem.style.gridTemplateColumns = "1fr";
 
       fragment.appendChild(pokemonItem);
-      console.log(infoPokemons);
+      // console.log(infoPokemons);
     }
     resultApi.appendChild(fragment);
     
   } catch (err) {
     if (searchData.value != "") {
-      console.log(err);
       resultApi.innerHTML = `<div class="messageError">ERROR la carga de los pokemons ${err}</div>`;
     }
   }
@@ -122,23 +126,30 @@ const seePokemons = async (data) => {
       const result = await respuesta.json();
       // let dataPokemon;
 
-      let imgPokemon = await result.sprites.front_default;
+      // let imgPokemon = await result.sprites.front_default;
+
+      // let imgPokemon = await result.sprites.other.dream_world.front_default;
+      let imgPokemon = await result.sprites.other.home.front_default;
       let tipoPokemon = await result.types.map(
-        (type) => `<p class = "${type.type.name}">${type.type.name}</p>`
+        (type) => `<p class = "${type.type.name}">${type.type.name.toUpperCase()}</p>`
       );
+
       tipoPokemon = tipoPokemon.join("");
-
-      //   let numeroPokemon = result.id.toString();
-      //     if(numeroPokemon == 1){
-
-      //     }
+      
+      let numeroPokemon = result.id.toString();
+          if(numeroPokemon.length == 1){
+             numeroPokemon = "00"+numeroPokemon;
+          }else if(numeroPokemon.length == 2){
+            numeroPokemon = "0"+numeroPokemon;
+          }
 
       infoPokemons = `
-                <div class = "poke_info" >
-                    <img src="${imgPokemon}" alt="${result.name}">
+                <div class = "poke_info">
+                    <img src="${imgPokemon}" alt="${result.name}" >
+                                                          
                     <div class="dataBasic">
-                        <p>${result.id}</p>
-                        <h3 class="namePokemon">Name: ${result.name}</h3>
+                        <p># ${numeroPokemon}</p>
+                        <h2 class="namePokemon"> ${result.name.toUpperCase()}</h2>
                     </div>
 
                     <div class ="atributePokemon">
@@ -150,18 +161,20 @@ const seePokemons = async (data) => {
                     </div>
 
                 </div>
-                `;
+
+                <div class="more">aaaaaa</div>
+              `;
 
       pokemonItem.innerHTML += infoPokemons;
       pokemonItem.style.gridTemplateColumns = "repeat(3, 1fr)";
       fragment.appendChild(pokemonItem);
 
       infoPokemons = "";
-      console.log(infoPokemons);
+      // console.log(infoPokemons);
     }
     resultApi.appendChild(fragment);
   } catch (err) {
-    console.log(err);
+    // console.log(err);
     return (resultApi.innerHTML = `<div class="messageError">ERROR en la carga de datos de  los Pokemon</div>`);
   }
 };
