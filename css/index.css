@@ -3,6 +3,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    list-style: none;
+    text-decoration: none;
 }
 
 body{
@@ -16,11 +18,71 @@ img{
     object-fit: cover;
 }
 
-.navBarCategoria{
-    background-color: #e0e0e0;
-    padding: 5% 0 5% 0 ;
-    /* margin: 10% 0 10% 0 ; */
+.header{
+    width: 100%;
+    background-color: rgb(194, 36, 36);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 5rem;
+
 }
+
+.header .imagenIcon{
+    width: 5%;
+}
+
+.header .header__navbar{
+    background-color: transparent;
+    width: 15%;
+}
+
+.header__navbar ul{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.header__navbar ul li a{
+    color: #fff;
+}
+/*end header*/
+
+/*start Categori tipo pokemon*/
+.navBarCategoria{
+    width: 100%;
+    /* background-color: #e0e0e0; */
+
+    padding: 2rem 2rem ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.listType{
+    /* width: 100%; */
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.listType .list-item{
+    background-color: transparent;
+}
+
+.listType .list-item .btn{
+    font-weight: 700;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 5px 10px;
+}
+
 
 .contentAll{
     width: 100%;
@@ -36,6 +98,17 @@ img{
 }
 
 /*hacer un effect move label about input*/
+
+.card{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    /* background-color: #000; */
+}
+
 .formSearchPokemon{
     position: relative;
     margin-top: 1rem;
@@ -64,7 +137,7 @@ img{
 .formSearchPokemon input:focus ~ label,
 .formSearchPokemon input:valid ~ label
 {
-    transform: translateX(10px) translateY(-12px);
+    transform: translateX(1.5rem) translateY(-12px);
     padding: 2px .5rem;
     background: #fff;
     color: #000;
@@ -79,7 +152,8 @@ img{
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    margin: 5px auto;
+    margin: 0 auto;
+    /* padding: 5px auto; */
 }
 
 .contentBtn .btn{
@@ -89,7 +163,6 @@ img{
     font-size: 1.3rem;
     font-weight: 400;
     border-radius: 4px;
-    background-color: #0ff;
     padding: 5px 10px;
     transition: background-color 400ms ease, outline 400ms ease;
 }
@@ -97,7 +170,7 @@ img{
 
 .contentBtn .btn:hover{
     background-color: transparent;
-    outline: #fff;
+    /* outline: #fff; */
 }
 
 .messageError{
@@ -110,11 +183,14 @@ img{
 }
 
 .contentApi{
-    width: 90%;
+    width: 100%;
+    padding: 1rem 3.5rem;
+    background-color: #ece5e5;
 }
 
 .contentApi .pokemon-item{
     width: 100%;
+    
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: center;
@@ -124,6 +200,7 @@ img{
 
 .contentApi .pokemon-item .poke_info{
     position: relative;
+    background-color: #fff;
     width: 100%;
     align-items: center;
     display: flex;
