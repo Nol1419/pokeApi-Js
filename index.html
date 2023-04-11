@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +14,9 @@
     <link rel="stylesheet" href="./css/index.css">
 
 </head>
+
 <body>
+    <div class="loadPage" id="loadPage"></div>
 
     <header class="header">
         <img src="/assets/img/pokeball-64.png" alt="pokeBall" class="imagenIcon">
@@ -21,22 +24,20 @@
         <div class="searchData">
             <form class="formSearchPokemon" id="form">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="icon-card">
-                    <path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"></path>
+                    <path
+                        d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z">
+                    </path>
                 </svg>
 
-                <input type="text" class="searchPokemon" id="searchPokemon" autocomplete="off" size="40" placeholder="Search Name or ID Pokemon" autofocus>
+                <input type="text" class="searchPokemon" id="searchPokemon" autocomplete="off" size="40"
+                    placeholder="Search Name or ID Pokemon" autofocus>
                 <!-- <label for="searchPokemon">Search Name or ID Pokemon</label> -->
-    
+
             </form>
         </div>
     </header>
 
-    <br>
-    
     <main class="contentAll">
-                
-        
-
         <!-- Navbar de categorizacion de tipos de pokemon -->
         <section class="navBarCategoria">
             <h2>Type of Pokemon</h2>
@@ -64,17 +65,17 @@
 
         <!-- naveagdor top -->
         <div class="contentBtn" id="contentBtn"></div>
-        
+
         <!-- CARD HOVER DATA POKEMON (POKE INFO)-->
         <div class="contentApi"></div>
-        
+
         <!-- naveagdor button -->
         <div class="contentBtn" id="contentBtnButton"></div>
 
         <div class="scrollUp" id="scrollUp">
             <button class="btnScroll" id="btnScroll">
                 <!-- UP -->
-                <i class='bx bx-up-arrow-alt' style='color:#f80404' ></i>
+                <i class='bx bx-up-arrow-alt' style='color:#f80404'></i>
             </button>
         </div>
 
