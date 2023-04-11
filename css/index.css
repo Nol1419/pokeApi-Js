@@ -396,16 +396,21 @@ img{
     right: 0;
     bottom: 1rem;
 
-    padding: 5px;
+    padding: 3px;
     background-color: rgb(194, 36, 36);
-    color: #fff;
     border-radius: 50%;
 }
 
 .scrollUp .btnScroll{
     background-color: transparent;
-    padding: 7px;
+    padding: 4px;
     border: transparent;
+}
+
+.bx-up-arrow-alt{
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: #fff !important;
 }
 
 
