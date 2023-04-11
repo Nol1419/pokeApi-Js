@@ -80,7 +80,7 @@ const searchPokemon = async (value) => {
 
       pokemonItem.innerHTML = infoPokemons;
       pokemonItem.style.gridTemplateColumns = "1fr";
-
+      
       fragment.appendChild(pokemonItem);
       // console.log(infoPokemons);
     }
@@ -90,6 +90,7 @@ const searchPokemon = async (value) => {
       resultApi.innerHTML = `<div class="messageError">ERROR la carga de los pokemons ${err}</div>`;
     }
   }
+  
 };
 
 const searchUrl = "https://pokeapi.co/api/v2/pokemon/";
@@ -129,6 +130,7 @@ const seePokemons = async (data) => {
       }
 
       const result = await respuesta.json();
+      // console.log(result);
 
       // let imgPokemon = await result.sprites.front_default;
       let imgPokemon = await result.sprites.other.home.front_default;
@@ -171,10 +173,9 @@ const seePokemons = async (data) => {
 
       pokemonItem.innerHTML += infoPokemons;
       pokemonItem.style.gridTemplateColumns = "repeat(3, 1fr)";
+      // pokemonItem.style.gridTemplateColumns = "repeat(3, 1fr)";
       fragment.appendChild(pokemonItem);
-
       infoPokemons = "";
-      // console.log(infoPokemons);
     }
     resultApi.appendChild(fragment);
   } catch (err) {
@@ -247,7 +248,16 @@ searchData.addEventListener("keyup", (e) => {
   e.preventDefault();
   let { value } = e.target;
 
-  value === "" ? callApi(seePokemosURL) : searchPokemon(value);
+  if (value === ""){
+    contentBtn.style.display = "flex";
+    contentBtnButton.style.display = "flex";
+    callApi(seePokemosURL)
+  }else{
+    contentBtn.style.display = "none";
+    contentBtnButton.style.display = "none";
+    searchPokemon(value);
+  }
+
 });
 
 // muestra la interfaz de inicio
@@ -276,6 +286,8 @@ btnHeader.forEach((boton) =>
     pokemonItem.innerHTML = "";
 
     if (btnId === "ver-todo") {
+      contentBtn.style.display = "flex";
+      contentBtnButton.style.display = "flex";
       callApi(seePokemosURL);
     }
 
@@ -286,10 +298,35 @@ btnHeader.forEach((boton) =>
           const tipos = data.types.map((type) => type.type.name);
 
           if (tipos.some((tipo) => tipo.includes(btnId))) {
+            contentBtn.style.display = "none";
+            contentBtnButton.style.display = "none";
             seePokemonsCategori(data);
-            // console.log(data);
           }
         });
     }
   })
 );
+
+window.addEventListener("scroll", () => {
+  let scrollUp = document.getElementById("scrollUp");
+  let btnScroll = document.getElementById("btnScroll");
+  
+  let scrollLimit = document.documentElement.scrollTop;
+  let scrollInitial = 100;
+
+  if (scrollLimit > scrollInitial) {
+    scrollUp.style.display = "block";
+  } else {
+    scrollUp.style.display = "none";
+  }
+
+  // btn regres top = 0
+  btnScroll.addEventListener("click", () => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+
+
+});

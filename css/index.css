@@ -9,6 +9,7 @@
 
 body{
     display: flex;
+    scroll-behavior: smooth;
     flex-direction: column;
     flex-wrap: wrap;
 }
@@ -20,7 +21,7 @@ img{
 
 .header{
     width: 100%;
-    background-color: rgb(194, 36, 36);
+    background-color: rgb(36, 144, 194);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -33,28 +34,68 @@ img{
     width: 5%;
 }
 
-.header .header__navbar{
-    background-color: transparent;
-    width: 15%;
-}
+/*hacer un effect move label about input*/
 
-.header__navbar ul{
-    width: 100%;
+.searchData{
+    width: 95%;
     display: flex;
-    justify-content: space-around;
-    gap: 1rem;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-.header__navbar ul li a{
-    color: #fff;
+.formSearchPokemon{
+    position: relative;
+    margin-top: 1rem;
+    width: 30%;
+}
+
+.formSearchPokemon input{
+    width: 100%;
+    padding: 10px;
+    background: #fff;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: .7rem;
+}
+
+.formSearchPokemon .icon-card{
+    position: absolute;
+    top: 6px;
+    right: 5px;
+}
+
+/* .formSearchPokemon label{
+    position: absolute;
+    left: 0;
+    padding: 11px .5rem;
+    color: #000;
+    pointer-events: none;
+    transition: all 400ms ease;
+    border-top: none;
+    outline: none;
+}
+
+.formSearchPokemon input:focus ~ label,
+.formSearchPokemon input:valid ~ label
+{
+    transform: translateX(1.5rem) translateY(-12px);
+    padding: 2px .5rem;
+    background: #fff;
+    color: #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}*/
+
+.formSearchPokemon input:focus
+{
+    border: transparent;
+    outline: transparent;
 }
 /*end header*/
 
 /*start Categori tipo pokemon*/
 .navBarCategoria{
     width: 100%;
-    /* background-color: #e0e0e0; */
-
     padding: 2rem 2rem ;
     display: flex;
     flex-direction: column;
@@ -85,64 +126,15 @@ img{
 
 
 .contentAll{
-    width: 100%;
-    /* background-color: #e0e0e0; */
-    
+    width: 100%;    
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
+    padding: 2rem 0;
 
     gap: 2rem;
-}
-
-/*hacer un effect move label about input*/
-
-.card{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    /* background-color: #000; */
-}
-
-.formSearchPokemon{
-    position: relative;
-    margin-top: 1rem;
-    width: 30%;
-}
-
-.formSearchPokemon input{
-    width: 100%;
-    /* background: #e0e0e0; */
-    background: transparent;
-    padding: 10px;
-    border: 1px solid #000;
-    border-radius: .7rem;
-}
-
-.formSearchPokemon label{
-    position: absolute;
-    left: 0;
-    padding: 11px .5rem;
-    color: #000;
-    pointer-events: none;
-    transition: all 400ms ease;
-}
-
-
-.formSearchPokemon input:focus ~ label,
-.formSearchPokemon input:valid ~ label
-{
-    transform: translateX(1.5rem) translateY(-12px);
-    padding: 2px .5rem;
-    background: #fff;
-    color: #000;
-    border-left: 1px solid #000;
-    border-right: 1px solid #000;
 }
 
 .contentBtn{
@@ -153,23 +145,29 @@ img{
     justify-content: space-around;
     align-items: center;
     margin: 0 auto;
-    /* padding: 5px auto; */
 }
 
 .contentBtn .btn{
     cursor: pointer;
+    background-color: rgb(252, 9, 9);
+    color: #fff;
+
     outline: none;
-    border: transparent;
+    border: 1px solid transparent;
+    
     font-size: 1.3rem;
     font-weight: 400;
     border-radius: 4px;
     padding: 5px 10px;
+    
     transition: background-color 400ms ease, outline 400ms ease;
 }
 
 
 .contentBtn .btn:hover{
-    background-color: transparent;
+    border: 1px solid rgb(252, 9, 9);
+    background-color: #fff;
+    color: rgb(252, 9, 9);
     /* outline: #fff; */
 }
 
@@ -185,10 +183,11 @@ img{
 .contentApi{
     width: 100%;
     padding: 1rem 3.5rem;
-    background-color: #ece5e5;
+    background-color: #ffff;
 }
 
 .contentApi .pokemon-item{
+    background-color: #ffff;
     width: 100%;
     
     display: grid;
@@ -278,94 +277,137 @@ img{
     background-color: #e0e0e0;
 }
 
+#ver-todo{
+    cursor: pointer;
+}
+
 .normal{
+    cursor: pointer;
     background-color: #ece5e5;
     color: #000;
 }
 
 .fire{
+    cursor: pointer;
     background-color: rgb(255, 69, 0);
     color: #000;
 }
 
 .water{
+    cursor: pointer;
     background-color: rgb(0, 76, 255);
     color: #fff;
 }
 
 .grass{
+    cursor: pointer;
     background-color: rgb(10, 172, 10);
     color: #000;
 }
 
 .electric{
+    cursor: pointer;
     background-color: rgb(255, 255, 0);
     color: #000;
 }
 
 .ice{
+    cursor: pointer;
     background-color: rgb(0, 255, 255);
     color: #000;
 }
 
 .fighting{
+    cursor: pointer;
     background-color: rgb(194, 36, 36);
     color: #fff;
 }
 
 .poison{
+    cursor: pointer;
     background-color: rgb(143, 12, 143);
     color: #fff;
 }
 
 .ground{
+    cursor: pointer;
     background-color: rgb(201, 172, 43);
     color: #000;
 }
 
 .flying{
+    cursor: pointer;
     background-color: rgb(100, 149, 237);
     color: #000;
 }
 
 .psychic{
+    cursor: pointer;
     background-color: rgb(220, 100, 182);
     color: #000;
 }
 
 .bug{
+    cursor: pointer;
     background-color: rgb(92, 115, 0);
 }
 
 .rock{
+    cursor: pointer;
     background-color: rgb(153, 131, 33);
     color: #000;   
 }
 
 .ghost{
+    cursor: pointer;
     background-color: rgba(143, 12, 143, 0.772);
     color: #fff;
 }
 
 .dark{
+    cursor: pointer;
     background-color: #0000007b;
     color: #fff;
 }
 
 .dragon{
+    cursor: pointer;
     background-color: rgb(101, 20, 181);
     color: #fff;
 }
 
 .steel{
+    cursor: pointer;
     background-color: rgb(112, 128, 144);
     color: #000;
 }
 
 .fairy{
+    cursor: pointer;
     background-color: rgb(243, 166, 218);
     color: #000;   
 }
+
+/* Btn Up scroll */
+
+.scrollUp{
+    display: none;
+    position: fixed;
+    right: 0;
+    bottom: 1rem;
+
+    padding: 5px;
+    background-color: rgb(194, 36, 36);
+    color: #fff;
+    border-radius: 50%;
+}
+
+.scrollUp .btnScroll{
+    background-color: transparent;
+    padding: 7px;
+    border: transparent;
+}
+
 
 @media screen and (max-width: 1040px) {
     

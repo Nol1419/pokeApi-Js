@@ -17,21 +17,29 @@
 
     <header class="header">
         <img src="/assets/img/pokeball-64.png" alt="pokeBall" class="imagenIcon">
-        <nav class="header__navbar">
-            <ul>
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/generation.html">Generations</a></li>
-            </ul>
-        </nav>
+        <!-- search pokemon -->
+        <div class="searchData">
+            <form class="formSearchPokemon" id="form">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="icon-card">
+                    <path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"></path>
+                </svg>
+
+                <input type="text" class="searchPokemon" id="searchPokemon" autocomplete="off" size="40" placeholder="Search Name or ID Pokemon" autofocus>
+                <!-- <label for="searchPokemon">Search Name or ID Pokemon</label> -->
+    
+            </form>
+        </div>
     </header>
 
     <br>
     
     <main class="contentAll">
+                
         
+
         <!-- Navbar de categorizacion de tipos de pokemon -->
         <section class="navBarCategoria">
-            <h2>Tipos de Pokemon</h2>
+            <h2>Type of Pokemon</h2>
             <ul class="listType">
                 <li class="list-item"><button class="btn btn-list" id="ver-todo">Ver Todos</button></li>
                 <li class="list-item"><button class="btn btn-list normal" id="normal">Normal</button></li>
@@ -53,21 +61,6 @@
                 <li class="list-item"><button class="btn btn-list fairy" id="fairy">Fairy</button></li>
             </ul>
         </section>
-    
-        
-        <!-- CARD HOVER DATA POKEMON -->
-        <section class="card">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="icon-card">
-                <path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"></path>
-            </svg>
-            <form class="formSearchPokemon" id="form">
-    
-                <input type="text" class="searchPokemon" id="searchPokemon" autocomplete="off" size="40" required>
-                <label for="searchPokemon">Search Name Pokemon or ID Pokemon</label>
-    
-            </form>
-        </section>
-
 
         <!-- naveagdor top -->
         <div class="contentBtn" id="contentBtn"></div>
@@ -77,6 +70,13 @@
         
         <!-- naveagdor button -->
         <div class="contentBtn" id="contentBtnButton"></div>
+
+        <div class="scrollUp" id="scrollUp">
+            <button class="btnScroll" id="btnScroll">
+                <!-- UP -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="iconScroll" ><path d="M6 4h12v2H6zm.707 11.707L11 11.414V20h2v-8.586l4.293 4.293 1.414-1.414L12 7.586l-6.707 6.707z"></path></svg>
+            </button>
+        </div>
 
     </main>
 
